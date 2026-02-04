@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You ❤️</title>
+  <meta name="description" content="A tiny animated website with big feelings.">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Arial", sans-serif;
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      animation: popIn 1s ease forwards;
+      max-width: 320px;
+    }
+
+    h1 { margin-top: 10px; }
+
+    img {
+      width: 220px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    img.show {
+      opacity: 1;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 25px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover { transform: scale(1.1); }
+
+    #message {
+      margin-top: 15px;
+      font-size: 18px;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .fade-in {
+      opacity: 1 !important;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 20px;
+      animation: floatUp 6s linear forwards;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(100vh); opacity: 1; }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img id="loveImage" src="us1.jpg" alt="Us">
+    <h1>Hi, my Valentine 💕</h1>
+    <p>I made this just for you.</p>
+    <button id="loveButton">Click me</button>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    const messages = [
+      "You make me feel so loved ✨",
+      "My heart and my tummy have been full since the day i met you 🫶",
+      "Now a song break (in my voice)",
+      "You are 👨🏻‍🍳",
+      "My fire 🔥",
+      "The one 👆🏽",
+      "DESIRE 👩🏽‍❤️‍💋‍👨🏻",
+      "Believe when i say 💃🏾",
+      "I love you that way 😉💝",
+      "You love to annoy me but i'm weirdly into that 😂😍",
+      "Even your quirks are cute 🥹",
+      "I love you more than i love chocolate 🍫",
+      "You're my favorite person ever 🥰",
+      "I can’t wait to see you and be with you 😘",
+      "I hope you always know how much i love you because i hate to code but i will do it for you ❤️",
+      "Happy Valentines Day my love 💕"
+    ];
+
+    const images = [
+      "us1.jpg",
+      "us2.jpg",
+      "us3.jpg",
+      "us4.jpg",
+      "us1.jpg",
+      "us2.jpg",
+      "us3.jpg",
+      "us4.jpg",
+      "us1.jpg",
+      "us2.jpg",
+      "us3.jpg",
+      "us4.jpg",
+      "us1.jpg",
+      "us2.jpg",
+      "us3.jpg",
+      "us4.jpg"
+    ];
+
+    let clickCount = 0;
+    const messageEl = document.getElementById("message");
+    const imageEl = document.getElementById("loveImage");
+    const button = document.getElementById("loveButton");
+
+    button.addEventListener("click", () => {
+      if (clickCount < messages.length) {
+        messageEl.classList.remove("fade-in");
+        imageEl.classList.remove("show");
+
+        messageEl.innerHTML = messages[clickCount];
+        imageEl.src = images[clickCount];
+
+        void messageEl.offsetWidth;
+        messageEl.classList.add("fade-in");
+        imageEl.classList.add("show");
+
+        clickCount++;
+      } else {
+        messageEl.innerHTML = "💖 You’ve unlocked all my love 💖";
+        messageEl.classList.add("fade-in");
+      }
+    });
+
+    // Floating hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 500);
+  </script>
+
+</body>
+</html>
