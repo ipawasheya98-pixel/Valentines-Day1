@@ -202,6 +202,14 @@ const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const response = document.getElementById("response");
 
+// Make the "No" button run away 😈
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * 160 - 80;
+  const y = Math.random() * 120 - 60;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+
 yesBtn.addEventListener("click", () => {
   response.innerHTML = "Correct answer 😌💘";
   setTimeout(() => {
