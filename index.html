@@ -103,6 +103,18 @@
     <div id="response" style="margin-top:15px;"></div>
   </div>
 
+  <div class="card" id="rewardSection" style="display:none;">
+  <h2>You chose correctly 😌💍</h2>
+  <p>
+    Congratulations.<br><br>
+    You have officially unlocked:
+    <br>• Unlimited hugs 🤍
+    <br>• Unlimited kisses 😘
+    <br>• Lifetime annoyance from me 😭💖
+  </p>
+</div>
+
+
   <script>
     const messages = [
       "I wanted to do something special for you today 😝",
@@ -211,10 +223,8 @@ noBtn.addEventListener("mouseover", () => {
 
 
 yesBtn.addEventListener("click", () => {
-  response.innerHTML = "Correct answer 😌💘";
-  setTimeout(() => {
-    response.innerHTML = "Okay good. I love you 😘💍";
-  }, 1200);
+  document.getElementById("questionSection").style.display = "none";
+  document.getElementById("rewardSection").style.display = "block";
 });
 
 noBtn.addEventListener("click", () => {
