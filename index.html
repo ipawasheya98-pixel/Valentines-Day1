@@ -93,6 +93,16 @@
     <div id="message"></div>
   </div>
 
+   <div class="card" id="questionSection" style="display:none;">
+    <h2>Important question 😳</h2>
+    <p>Do you want to keep choosing me?</p>
+
+    <button id="yesBtn">Yes 💖</button>
+    <button id="noBtn">No 🙄</button>
+
+    <div id="response" style="margin-top:15px;"></div>
+  </div>
+
   <script>
     const messages = [
       "I wanted to do something special for you today 😝",
@@ -186,6 +196,26 @@
       document.body.appendChild(heart);
       setTimeout(() => heart.remove(), 6000);
     }, 500);
+
+    // Question buttons
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const response = document.getElementById("response");
+
+yesBtn.addEventListener("click", () => {
+  response.innerHTML = "Correct answer 😌💘";
+  setTimeout(() => {
+    response.innerHTML = "Okay good. We move forward together 💍";
+  }, 1200);
+});
+
+noBtn.addEventListener("click", () => {
+  response.innerHTML = "🚫 Absolutely not. Try again.";
+  setTimeout(() => {
+    response.innerHTML = "";
+  }, 1500);
+});
+
   </script>
 
 </body>
